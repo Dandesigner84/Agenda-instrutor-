@@ -1,0 +1,8 @@
+{
+  "name": "AutoDrive Smart - Agenda para Instrutores",
+  "description": "Plataforma inteligente para conexão entre alunos e instrutores de autoescola autônomos, com cálculo de deslocamento e precificação dinâmica baseada em distância.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera"
+  ]
+}
