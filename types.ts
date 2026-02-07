@@ -24,53 +24,80 @@ export enum TransmissionType {
   AUTOMATIC = 'Automático'
 }
 
+export enum LessonStatus {
+  SCHEDULED = 'SCHEDULED',
+  COMPLETED = 'COMPLETED',
+  CANCELLED = 'CANCELLED'
+}
+
 export interface Coordinates {
   lat: number;
   lng: number;
 }
 
-export interface Vehicle {
+// Interface base para Auditoria e LGPD
+export interface BaseEntity {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt?: string | null;
+}
+
+export interface AuthUser extends BaseEntity {
+  name: string;
+  email: string;
+  phone: string;
+  role: UserRole;
+  status: AccountStatus;
+  photo?: string;
+  consentGiven: boolean;
+  consentDate?: string;
+}
+
+export interface Vehicle extends BaseEntity {
+  instructorId: string;
   model: string;
   year: number;
   type: TransmissionType;
+  plateMasked: string; // Ex: ABC-***1
 }
 
-export interface Availability {
+export interface Availability extends BaseEntity {
+  instructorId: string;
   dayOfWeek: number; 
   startHour: number; 
   endHour: number;   
 }
 
-export interface AuthUser {
-  id: string;
-  name: string;
-  email: string;
-  role: UserRole;
-  status: AccountStatus;
-  photo?: string;
-}
-
 export interface Instructor extends AuthUser {
   experienceYears: number;
   categories: CnhCategory[];
-  vehicle: Vehicle;
+  vehicleId?: string;
+  vehicle?: Vehicle;
   baseAddress: string;
   baseCoords: Coordinates;
   rating: number;
   reviewCount: number;
   basePrice: number;
   bio: string;
-  availability: Availability[];
+  isApproved: boolean;
+  availability?: Partial<Availability>[];
 }
 
-export interface Lesson {
-  id: string;
+export interface Lesson extends BaseEntity {
   instructorId: string;
   studentId: string;
-  studentName: string;
+  startDateTime: string;
+  endDateTime: string;
   pickupAddress: string;
-  date: string;
-  startTime: string;
-  finalPrice: number;
-  status: 'SCHEDULED' | 'COMPLETED' | 'CANCELLED';
+  pickupCoords: Coordinates;
+  
+  // Snapshots de Precificação (Imutabilidade Financeira)
+  distanceKm: number;
+  travelTimeMinutes: number;
+  basePriceSnapshot: number;
+  distanceFee: number;
+  totalPrice: number;
+  
+  status: LessonStatus;
 }
