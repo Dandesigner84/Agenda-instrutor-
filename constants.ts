@@ -1,8 +1,7 @@
 
-import { Instructor, CnhCategory, TransmissionType, UserRole, AccountStatus } from './types';
+import { Instructor, CnhCategory, TransmissionType, UserRole, AccountStatus } from './types.ts';
 
 export const MOCK_INSTRUCTORS: Instructor[] = [
-  // Fix: Added missing required properties (phone, consentGiven, isApproved, createdAt, updatedAt) for Roberto Silva and his vehicle
   {
     id: '1',
     name: 'Roberto Silva',
@@ -16,7 +15,6 @@ export const MOCK_INSTRUCTORS: Instructor[] = [
     photo: 'https://picsum.photos/seed/roberto/200',
     experienceYears: 15,
     categories: [CnhCategory.A, CnhCategory.B],
-    // Fix: Added missing required properties (instructorId, plateMasked, id, createdAt, updatedAt) for Vehicle (Line 15)
     vehicle: {
       id: 'v1',
       instructorId: '1',
@@ -42,7 +40,6 @@ export const MOCK_INSTRUCTORS: Instructor[] = [
       { dayOfWeek: 5, startHour: 8, endHour: 18 }
     ]
   },
-  // Fix: Added missing required properties (phone, consentGiven, isApproved, createdAt, updatedAt) for Ana Oliveira and her vehicle (Line 30)
   {
     id: '2',
     name: 'Ana Oliveira',
@@ -56,7 +53,6 @@ export const MOCK_INSTRUCTORS: Instructor[] = [
     photo: 'https://picsum.photos/seed/ana/200',
     experienceYears: 8,
     categories: [CnhCategory.B],
-    // Fix: Added missing required properties (instructorId, plateMasked, id, createdAt, updatedAt) for Vehicle (Line 44)
     vehicle: {
       id: 'v2',
       instructorId: '2',
@@ -81,7 +77,6 @@ export const MOCK_INSTRUCTORS: Instructor[] = [
       { dayOfWeek: 6, startHour: 8, endHour: 12 }
     ]
   },
-  // Fix: Added missing required properties (phone, consentGiven, isApproved, createdAt, updatedAt) for Marcos Santos and his vehicle (Line 54)
   {
     id: '3',
     name: 'Marcos Santos',
@@ -95,7 +90,6 @@ export const MOCK_INSTRUCTORS: Instructor[] = [
     photo: 'https://picsum.photos/seed/marcos/200',
     experienceYears: 20,
     categories: [CnhCategory.D, CnhCategory.E],
-    // Fix: Added missing required properties (instructorId, plateMasked, id, createdAt, updatedAt) for Vehicle (Line 72)
     vehicle: {
       id: 'v3',
       instructorId: '3',

@@ -1,5 +1,5 @@
 
-import { Coordinates } from '../types';
+import { Coordinates } from '../types.ts';
 
 /**
  * Calculates straight-line distance between two points (Haversine formula)

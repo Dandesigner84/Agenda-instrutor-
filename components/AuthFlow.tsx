@@ -1,6 +1,6 @@
 
 import React, { useState, useRef } from 'react';
-import { UserRole, AccountStatus, CnhCategory, TransmissionType } from '../types';
+import { UserRole, AccountStatus, CnhCategory, TransmissionType } from '../types.ts';
 import { Mail, Lock, Chrome, MessageCircle, User, Briefcase, ShieldCheck, ArrowRight, ChevronLeft, Car, Calendar, MapPin, Upload, AlertCircle, Camera, RefreshCw, X } from 'lucide-react';
 
 interface Props {
