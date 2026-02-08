@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Instructor } from '../../types';
-import { Calendar, DollarSign, Clock, MapPin, User, Star, TrendingUp } from 'lucide-react';
+import { Instructor } from '../../types.ts';
+import { Calendar, DollarSign, Clock, MapPin, User, Star, TrendingUp, Check, X } from 'lucide-react';
 
 interface Props {
   user: Instructor;
@@ -43,7 +43,6 @@ const InstructorDashboard: React.FC<Props> = ({ user }) => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Agenda Section */}
         <div className="lg:col-span-2 space-y-6">
           <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
             <div className="flex items-center justify-between mb-6">
@@ -89,7 +88,6 @@ const InstructorDashboard: React.FC<Props> = ({ user }) => {
           </div>
         </div>
 
-        {/* Sidebar / Profile Settings */}
         <div className="space-y-6">
           <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center">
             <div className="relative inline-block mb-4">
@@ -118,9 +116,5 @@ const InstructorDashboard: React.FC<Props> = ({ user }) => {
     </div>
   );
 };
-
-// Ícones locais para simular Lucide se necessário
-const Check = ({ size, className }: any) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polyline points="20 6 9 17 4 12"></polyline></svg>;
-const X = ({ size, className }: any) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>;
 
 export default InstructorDashboard;

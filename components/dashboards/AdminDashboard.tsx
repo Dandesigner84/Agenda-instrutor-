@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { MOCK_INSTRUCTORS } from '../../constants';
+import { MOCK_INSTRUCTORS } from '../../constants.ts';
 import { ShieldCheck, Users, BarChart3, Settings, Check, X, AlertCircle } from 'lucide-react';
 
 const AdminDashboard: React.FC = () => {
@@ -49,7 +49,7 @@ const AdminDashboard: React.FC = () => {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-600">{inst.experienceYears} anos</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">{inst.vehicle.model}</td>
+                  <td className="px-6 py-4 text-sm text-gray-600">{inst?.vehicle?.model}</td>
                   <td className="px-6 py-4">
                     <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700">AGUARDANDO</span>
                   </td>

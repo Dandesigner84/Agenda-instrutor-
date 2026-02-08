@@ -1,13 +1,13 @@
 
 import React, { useState, useMemo } from 'react';
-import { Instructor, CnhCategory, TransmissionType, UserRole, AuthUser, AccountStatus } from './types';
-import { MOCK_INSTRUCTORS } from './constants';
-import InstructorCard from './components/InstructorCard';
-import BookingModal from './components/BookingModal';
-import AuthFlow from './components/AuthFlow';
-import InstructorDashboard from './components/dashboards/InstructorDashboard';
-import AdminDashboard from './components/dashboards/AdminDashboard';
-import { Search, Filter, Map, Car, User, Settings, CheckCircle, Calendar, LogOut, ShieldCheck } from 'lucide-react';
+import { Instructor, CnhCategory, TransmissionType, UserRole, AuthUser, AccountStatus } from './types.ts';
+import { MOCK_INSTRUCTORS } from './constants.ts';
+import InstructorCard from './components/InstructorCard.tsx';
+import BookingModal from './components/BookingModal.tsx';
+import AuthFlow from './components/AuthFlow.tsx';
+import InstructorDashboard from './components/dashboards/InstructorDashboard.tsx';
+import AdminDashboard from './components/dashboards/AdminDashboard.tsx';
+import { Search, Filter, Car, Settings, CheckCircle, LogOut, ShieldCheck } from 'lucide-react';
 
 const App: React.FC = () => {
   const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
@@ -87,14 +87,12 @@ const App: React.FC = () => {
           </div>
         </header>
         <main className="max-w-7xl mx-auto">
-          {/* Aqui injetamos os dados de instrutor do mock para demonstração */}
           <InstructorDashboard user={MOCK_INSTRUCTORS[0]} />
         </main>
       </div>
     );
   }
 
-  // Visualização de Aluno (Marketplace original)
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
       <header className="bg-white border-b border-gray-200 sticky top-0 z-30 px-4 py-4 shadow-sm">

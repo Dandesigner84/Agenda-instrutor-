@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Instructor, TransmissionType } from '../types';
+import { Instructor, TransmissionType } from '../types.ts';
 import { Star, MapPin, Briefcase, Car, ShieldCheck } from 'lucide-react';
 
 interface Props {
@@ -49,7 +49,7 @@ const InstructorCard: React.FC<Props> = ({ instructor, onClick, userDistance }) 
           </div>
           <div className="flex items-center gap-2 text-gray-600">
             <Car size={16} className="text-blue-500" />
-            <span className="truncate">{instructor.vehicle.model} ({instructor.vehicle.type === TransmissionType.AUTOMATIC ? 'Aut.' : 'Man.'})</span>
+            <span className="truncate">{instructor?.vehicle?.model} ({instructor?.vehicle?.type === TransmissionType.AUTOMATIC ? 'Aut.' : 'Man.'})</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 col-span-2">
             <MapPin size={16} className="text-blue-500" />

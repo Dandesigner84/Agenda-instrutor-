@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { Instructor, Coordinates } from '../types';
+import { Instructor, Coordinates } from '../types.ts';
 import { X, Navigation, AlertTriangle, Calendar, Clock, CreditCard } from 'lucide-react';
-import { calculateDistance, calculateLessonPrice, estimateTravelTime } from '../utils/geoUtils';
+import { calculateDistance, calculateLessonPrice, estimateTravelTime } from '../utils/geoUtils.ts';
 
 interface Props {
   instructor: Instructor;
@@ -15,13 +15,9 @@ const BookingModal: React.FC<Props> = ({ instructor, onClose, onConfirm }) => {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   
-  // Simulation of geocoding for a few demo addresses
-  const [mockCoords, setMockCoords] = useState<Coordinates | null>(null);
   const [stats, setStats] = useState({ distance: 0, time: 0, finalPrice: instructor.basePrice, hasSurcharge: false });
 
   const simulateGeocoding = (val: string) => {
-    // In a real app, this would use Google Maps Geocoding API
-    // We mock different coords based on length for the demo
     const offset = val.length * 0.002;
     return {
       lat: instructor.baseCoords.lat + offset - 0.05,
@@ -32,15 +28,12 @@ const BookingModal: React.FC<Props> = ({ instructor, onClose, onConfirm }) => {
   useEffect(() => {
     if (address.length > 5) {
       const coords = simulateGeocoding(address);
-      setMockCoords(coords);
-      
       const distance = calculateDistance(instructor.baseCoords, coords);
       const time = estimateTravelTime(distance);
       const { price, hasSurcharge } = calculateLessonPrice(instructor.basePrice, distance);
       
       setStats({ distance, time, finalPrice: price, hasSurcharge });
     } else {
-      setMockCoords(null);
       setStats({ distance: 0, time: 0, finalPrice: instructor.basePrice, hasSurcharge: false });
     }
   }, [address, instructor]);
